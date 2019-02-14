@@ -122,6 +122,9 @@ d(TableName, Conditions) ->
 %%%=============================================================================
 
 -spec escape(field()) -> string().
+escape(Field) when is_boolean(Field) ->
+  atom_to_list(Field);
+
 escape(Field) when is_atom(Field) ->
   escape(atom_to_list(Field));
 
